@@ -39,7 +39,7 @@ jobs:
         # запустить написанные разработчиком тесты
         python manage.py test
         
-  send_message:
+  send_message1:
     runs-on: ubuntu-latest
     needs: tests
     steps:
@@ -78,7 +78,7 @@ jobs:
           push: true
           tags: morozovp/infra_actions:latest
           
-  send_message:
+  send_message2:
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
     steps:
@@ -107,7 +107,7 @@ jobs:
           sudo docker stop $(sudo docker ps -a -q)
           sudo docker run --rm -d -p 5000:5000 morozovp/infra_actions
           
-  send_message:
+  send_message3:
     runs-on: ubuntu-latest
     needs: deploy
     steps:
